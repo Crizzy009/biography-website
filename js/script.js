@@ -30,7 +30,10 @@ function updateTicker() {
         });
         const location = 'Seattle, Washington, USA - Institute for Protein Design';
         
-        tickerElement.textContent = `📅 ${date} | 🕐 ${time} | 📍 ${location}`;
+        const tickerText = `📅 ${date} | 🕐 ${time} | 📍 ${location}`;
+        
+        // Update ticker content
+        tickerElement.textContent = tickerText;
     }
     
     updateContent();

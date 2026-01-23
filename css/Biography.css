@@ -1,4 +1,4 @@
- * {
+* {
      margin: 0;
      padding: 0;
      box-sizing: border-box;
@@ -17,7 +17,7 @@
  }
 
  .navbar {
-     position: fixed;
+    position: fixed;
      top: 0;
      left: 0;
      width: 100%;
@@ -33,13 +33,18 @@
  .left-logo {
      display: flex;
      align-items: center;
+     background-color: #f0f0f0;
+     padding: 5px;
+     border-radius: 50%;
  }
 
  .logo {
      width: 60px;
      height: 60px;
-     border-radius: 50%;
+     border-radius: 100%;
      object-fit: cover;
+     background-color: #f0f0f0;
+     
  }
 
  .right-navlinks {
@@ -52,7 +57,7 @@
      text-decoration: none;
      color: #000000;
      font-size: 18px;
-     transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+     transition: all 0.3s ease;
  }
 
  a:hover {
@@ -60,20 +65,19 @@
  }
 
  .nav-link {
-     padding: 8px 16px;
-     border-radius: 5px;
-     transition: all 0.3s ease-in-out;
+     position: relative;
+     opacity: 1;
+     transition: color 0.3s ease, opacity 0.3s ease;
  }
 
  .nav-link:hover {
-     color: #ffffff;
-     background-color: #ff9800;
+     color: #ff9800;
+     opacity: 0.8;
  }
 
  .nav-link.active {
-     color: #ffffff;
-     background-color: #ff6b35;
-     animation: fadeIn 0.3s ease-in-out;
+     color: #ff9800;
+     font-weight: bold;
  }
 
  @keyframes fadeIn {
@@ -85,13 +89,22 @@
      }
  }
 
+ @keyframes fadeOut {
+     from {
+         opacity: 1;
+     }
+     to {
+         opacity: 0;
+     }
+ }
+
  .navbar-center {
      flex: 1;
      display: flex;
      justify-content: center;
  }
 
- .visitor-count-container {
+ .lefttg {
      display: flex;
      align-items: center;
      gap: 12px;
@@ -100,13 +113,7 @@
      border-radius: 20px;
      font-size: 14px;
      font-weight: 600;
- }
-
- .visitor-logo {
-     width: 35px;
-     height: 35px;
-     border-radius: 50%;
-     object-fit: cover;
+     flex-wrap: wrap;
  }
 
  .visitor-count {
@@ -162,6 +169,8 @@
      min-height: 100vh;
      width: 100%;
      overflow: hidden;
+     padding-top: 1%;
+
  }
 
  .page1-contain {
@@ -171,7 +180,7 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     padding-top: 70px;
+     padding-top: 50px;
      padding-bottom: 70px;
  }
 
@@ -276,6 +285,7 @@
      min-height: 100vh;
      width: 100%;
      overflow: hidden;
+     padding-top: 1%;
  }
 
  .books-contain {
@@ -285,7 +295,7 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     padding-top: 70px;
+     padding-top: 60px;
      padding-bottom: 70px;
  }
 
@@ -300,6 +310,7 @@
      background-position: center;
      filter: blur(4px);
      z-index: 1;
+
  }
 
  .books-body::after {
@@ -324,6 +335,7 @@
      overflow-y: auto;
      overflow-x: hidden;
      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+     
  }
 
  .top {
@@ -575,9 +587,74 @@
      .sitemap-grid {
          grid-template-columns: repeat(2, 1fr);
      }
+   
+ }
+
+ @media (max-width: 480px) {
+     .navbar {
+         padding: 8px 10px;
+     }
+
+     .lefttg {
+         gap: 6px;
+         padding: 4px 8px;
+         font-size: 11px;
+     }
+
+     .left-logo {
+         padding: 3px;
+     }
+
+     .logo {
+         width: 40px;
+         height: 40px;
+     }
+
+     .visitor-count {
+         font-size: 11px;
+     }
+
+     .right-navlinks {
+         gap: 10px;
+     }
+
+     a {
+         font-size: 12px;
+     }
+
+     #ticker-text {
+         font-size: 14px;
+     }
+
+     .ticker-container {
+         height: 35px;
+     }
  }
 
  @media (max-width: 1024px) {
+     .navbar {
+         padding: 8px 15px;
+     }
+
+     .lefttg {
+         gap: 10px;
+         padding: 5px 12px;
+         font-size: 13px;
+     }
+
+     .left-logo {
+         padding: 4px;
+     }
+
+     .logo {
+         width: 55px;
+         height: 55px;
+     }
+
+     .right-navlinks {
+         gap: 20px;
+     }
+
      .page1-frame {
          grid-template-columns: 1fr;
          grid-template-rows: auto auto auto;
@@ -595,14 +672,29 @@
      .content-grid {
          grid-template-columns: 1fr;
      }
+    
  }
 
  @media (max-width: 768px) {
      .navbar {
          padding: 10px 20px;
+         flex-wrap: wrap;
+         gap: 10px;
+     }
+
+     .lefttg {
+         order: 1;
+         width: 100%;
+         justify-content: center;
+         gap: 8px;
+         padding: 5px 10px;
+         font-size: 12px;
      }
 
      .right-navlinks {
+         order: 2;
+         width: 100%;
+         justify-content: center;
          gap: 15px;
      }
 
@@ -613,6 +705,10 @@
      .logo {
          width: 50px;
          height: 50px;
+     }
+
+     .visitor-count {
+         font-size: 12px;
      }
 
      .page1-frame {
